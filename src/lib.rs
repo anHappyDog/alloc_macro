@@ -14,7 +14,6 @@ pub fn define_simple_allocator(attr: TokenStream, item: TokenStream) -> TokenStr
     let expanded = quote! {
         #[global_allocator]
         static ALLOC: simple::SimpleAllocator = simple::SimpleAllocator::new(unsafe { &mut #name });
-
         static mut #name: [u8; #size] = [0; #size];
     };
 
